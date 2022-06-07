@@ -8,7 +8,7 @@
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/images/splash1.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -19,16 +19,40 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "config": {
+        "googleMapsApiKey": "paste_api_key_here"
+      }      
     },
     "android": {
+      "config": {
+        "googleMaps": {
+          "apiKey": "paste_api_key_here"
+        }
+      },      
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.nikhileshmr.Saavadhan"
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "sentry-expo"
+    ],
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "sentry-expo/upload-sourcemaps",
+          "config": {
+            "organization": "nikhilesh-dv",
+            "project": "saavadhan",
+            "authToken": "04abefe3164349e991eb95788d4c2f2a3b43dbe373664455bf8618b775350b0e"
+          }
+        }
+      ]
     }
   }
 }

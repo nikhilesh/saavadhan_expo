@@ -63,11 +63,12 @@ function BottomTabNavigator() {
         tabBarActiveTintColor: Colors[colorScheme].tint,
       }}>
       <BottomTab.Screen
-        name="TabOne"
+        name="Home"
         component={TabOneScreen}
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Saavadhan',
+          headerTitleAlign: 'center',
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate('Modal')}
@@ -78,20 +79,22 @@ function BottomTabNavigator() {
                 name="info-circle"
                 size={25}
                 color={Colors[colorScheme].text}
-                style={{ marginRight: 15 }}
+                style={{ marginRight: 15,display:'none' }}
               />
             </Pressable>
           ),
         })}
       />
+      { false &&
       <BottomTab.Screen
         name="TabTwo"
         component={TabTwoScreen}
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Info',
+          tabBarIcon: ({ color }) => <TabBarIcon name="info" color={color} />,
         }}
       />
+      }
     </BottomTab.Navigator>
   );
 }
